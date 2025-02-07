@@ -1,0 +1,43 @@
+MongoDB Scripts:
+
+use EmployeeDB;
+
+db.departments.insertOne({
+    department_id: 1,
+    name: "Engineering",
+    phone_number: "123-456-7890",
+    budget: 100000
+});
+
+db.employees.insertOne({
+    employee_id: 1,
+    first_name: "John",
+    last_name: "Doe",
+    date_of_employment: "2025-02-06",
+    salary: 60000,
+    department_id: 1
+});
+
+
+
+MySQL Scripts:
+
+CREATE DATABASE EmployeeDB;
+USE EmployeeDB;
+
+CREATE TABLE Department (
+    department_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    phone_number VARCHAR(20),
+    budget DOUBLE
+);
+
+CREATE TABLE Employee (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    date_of_employment DATE,
+    salary DOUBLE,
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES Department(department_id)
+);
